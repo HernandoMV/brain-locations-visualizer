@@ -23,3 +23,6 @@ data/example_locations.txt
 ```
 
 TODO: explain the way to get these points in Fiji
+
+#### Create visualization of coronal sections and a side view of the striatum
+
