@@ -7,13 +7,9 @@ Welcome to brain-locations-visualizer's documentation!
 ======================================================
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-
-.. toctree::
    :glob:
    :maxdepth: 1
-   :caption: Examples:
+   :caption: Scripts:
 
    auto_examples/index
 

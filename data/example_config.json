@@ -1,0 +1,17 @@
+{
+    "data_path": "/home/hernandom/GitHub/brain-locations-visualizer/data/",
+    "locations_file": "/home/hernandom/GitHub/brain-locations-visualizer/data/example_locations.txt",
+    "variable_2": 42,
+    "z_limits": [135, 307],
+    "y_limits": [98, 271],
+    "n_images": 12,
+    "rows": 4,
+    "cols": 3,
+    "id_1": "tStr",
+    "id_2": "Nac",
+    "color_1": "#002F3A",
+    "color_2": "#E95F32",
+    "color_other": "red",
+    "atlas_path": "Composite_with_atlas_RGB_green.tif",
+    "cp_image_path": "Striatum_side_flat_with_AUD1proj_RGB_all_grey.tif"
+}
