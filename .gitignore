@@ -57,7 +57,7 @@ local_settings.py
 instance/
 
 # Sphinx documentation
-docs/_build/
+docs/sphinx/_build/
 
 # MkDocs documentation
 /site/
