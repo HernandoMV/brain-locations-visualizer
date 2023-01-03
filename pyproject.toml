@@ -19,6 +19,12 @@ classifiers = [
     "License :: OSI Approved :: BSD License",
 ]
 
+dependencies = [
+    "numpy",
+    "pandas",
+    "brainrender",
+]
+
 [project.urls]
 homepage = "https://github.com/HernandoMV/brain-locations-visualizer"
 bug_tracker = "https://github.com/HernandoMV/brain-locations-visualizer/issues"
