@@ -1,3 +1,7 @@
+"""
+This module contains functions for generating the main figures
+"""
+
 import matplotlib.pyplot as plt
 from PIL import Image
 import numpy as np
@@ -20,6 +24,34 @@ def generate_side_figure(
     tf_marker,
     parent,
 ):
+    """
+    Plots the location of the fibers in the striatum from the side
+
+    :param config_parser: module from config_parser.py
+    :type config_parser: module with global variables
+    :param sl_list: location of the slices to show as dotted lines
+    :type sl_list: list
+    :param X: array with x coordinates of the fibers
+    :type X: array
+    :param Y: array with y coordinates of the fibers
+    :type Y: array
+    :param mask_1: mask for locations of fibers from the first group
+    :type mask_1: logical array
+    :param mask_2: mask for locations of fibers from the second group
+    :type mask_2: logical array
+    :param mask_other: mask for locations of fibers from other groups
+    :type mask_other: logical array
+    :param ff_mask: mask for locations of fibers from flat fibers
+    :type ff_mask: logical array
+    :param tf_mask: mask for locations of fibers from tapered fibers
+    :type tf_mask: logical array
+    :param ff_marker: type of marker for flat fibers
+    :type ff_marker: str
+    :param tf_marker: type of marker for tapered fibers
+    :type tf_marker: str
+    :param parent: path to the parent directory
+    :type parent: str or Path
+    """
     # make the plot
     fig, ax = plt.subplots(1, 1, figsize=[10, 10])
     # show striatum outline
@@ -103,40 +135,40 @@ def generate_coronal_figure(
     parent,
 ):
     """
-    things
+    plots the location of the fibers in the striatum from the coronal view
 
-    :param config_parser: _description_
-    :type config_parser: _type_
-    :param sl_list: _description_
-    :type sl_list: _type_
-    :param w: _description_
-    :type w: _type_
-    :param h: _description_
-    :type h: _type_
-    :param atlas: _description_
-    :type atlas: _type_
-    :param X: _description_
-    :type X: _type_
-    :param Y: _description_
-    :type Y: _type_
-    :param Z: _description_
-    :type Z: _type_
-    :param mask_1: _description_
-    :type mask_1: _type_
-    :param mask_2: _description_
-    :type mask_2: _type_
-    :param mask_other: _description_
-    :type mask_other: _type_
-    :param ff_mask: _description_
-    :type ff_mask: _type_
-    :param tf_mask: _description_
-    :type tf_mask: _type_
-    :param ff_marker: _description_
-    :type ff_marker: _type_
-    :param tf_marker: _description_
-    :type tf_marker: _type_
-    :param parent: _description_
-    :type parent: _type_
+    :param config_parser: module from config_parser.py
+    :type config_parser: module with global variables
+    :param sl_list: location of the slices to show as dotted lines
+    :type sl_list: list
+    :param w: width of the individual slices
+    :type w: int
+    :param h: height of the individual slices
+    :type h: int
+    :param atlas: atlas to use
+    :type atlas: Image
+    :param X: array with x coordinates of the fibers
+    :type X: array
+    :param Y: array with y coordinates of the fibers
+    :type Y: array
+    :param Z: array with z coordinates of the fibers
+    :type Z: array
+    :param mask_1: mask for locations of fibers from the first group
+    :type mask_1: logical array
+    :param mask_2: mask for locations of fibers from the second group
+    :type mask_2: logical array
+    :param mask_other: mask for locations of fibers from other groups
+    :type mask_other: logical array
+    :param ff_mask: mask for locations of fibers from flat fibers
+    :type ff_mask: logical array
+    :param tf_mask: mask for locations of fibers from tapered fibers
+    :type tf_mask: logical array
+    :param ff_marker: type of marker for flat fibers
+    :type ff_marker: str
+    :param tf_marker: type of marker for tapered fibers
+    :type tf_marker: str
+    :param parent: path to the parent directory
+    :type parent: str or Path
     """
     # plot the fibers in the slices
     fig2, axs = plt.subplots(
@@ -184,7 +216,20 @@ def generate_coronal_figure(
 
 def generate_3D_figure(config_parser, X, Y, Z, animal_name, parent):
     """
-    Print fiber locations in 3D
+    Generate several 3D plots of the fibers
+
+    :param config_parser: module from config_parser.py
+    :type config_parser: module with global variables
+    :param X: array with x coordinates of the fibers
+    :type X: array
+    :param Y: array with y coordinates of the fibers
+    :type Y: array
+    :param Z: array with z coordinates of the fibers
+    :type Z: array
+    :param animal_name: array with the names of the animals
+    :type animal_name: array
+    :param parent: path to the parent directory
+    :type parent: str or Path
     """
 
     settings.SHOW_AXES = False

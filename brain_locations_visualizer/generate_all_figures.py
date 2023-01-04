@@ -1,7 +1,5 @@
 """
-generate_all_figures.py
-=======================
-generates the three figures
+This script generates the three figures
 """
 
 import pandas as pd
