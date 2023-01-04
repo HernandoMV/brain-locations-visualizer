@@ -23,6 +23,7 @@ dependencies = [
     "numpy",
     "pandas",
     "brainrender",
+    "pillow",
 ]
 
 [project.urls]
