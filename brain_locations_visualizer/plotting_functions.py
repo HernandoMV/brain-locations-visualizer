@@ -99,6 +99,42 @@ def generate_coronal_figure(
     tf_marker,
     parent,
 ):
+    """
+    things
+
+    :param config_parser: _description_
+    :type config_parser: _type_
+    :param sl_list: _description_
+    :type sl_list: _type_
+    :param w: _description_
+    :type w: _type_
+    :param h: _description_
+    :type h: _type_
+    :param atlas: _description_
+    :type atlas: _type_
+    :param X: _description_
+    :type X: _type_
+    :param Y: _description_
+    :type Y: _type_
+    :param Z: _description_
+    :type Z: _type_
+    :param mask_1: _description_
+    :type mask_1: _type_
+    :param mask_2: _description_
+    :type mask_2: _type_
+    :param mask_other: _description_
+    :type mask_other: _type_
+    :param ff_mask: _description_
+    :type ff_mask: _type_
+    :param tf_mask: _description_
+    :type tf_mask: _type_
+    :param ff_marker: _description_
+    :type ff_marker: _type_
+    :param tf_marker: _description_
+    :type tf_marker: _type_
+    :param parent: _description_
+    :type parent: _type_
+    """
     # plot the fibers in the slices
     fig2, axs = plt.subplots(
         config_parser.rows,
