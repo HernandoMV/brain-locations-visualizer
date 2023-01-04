@@ -1,6 +1,6 @@
 """
 generate_all_figures.py
-===================
+=======================
 generates the three figures
 
 1. Specify the parameters and files

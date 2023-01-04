@@ -20,7 +20,13 @@ author = "Hernando M Vergara"
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ["sphinx.ext.autodoc", "sphinx_gallery.gen_gallery"]
+extensions = ["sphinx.ext.autodoc",
+              "sphinx_gallery.gen_gallery",
+]
+extensions.append('autoapi.extension')
+
+autoapi_type = 'python'
+autoapi_dirs = ['../../../brain_locations_visualizer']
 
 templates_path = ["_templates"]
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]

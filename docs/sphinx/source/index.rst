@@ -13,8 +13,6 @@ Welcome to brain-locations-visualizer's documentation!
    
    auto_examples/index
 
-.. automodule:: brain_locations_visualizer.plotting_functions
-    :members:
 
 
 Indices and tables
