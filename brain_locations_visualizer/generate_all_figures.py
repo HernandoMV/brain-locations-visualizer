@@ -2,11 +2,6 @@
 generate_all_figures.py
 =======================
 generates the three figures
-
-1. Specify the parameters and files
------------------------------------
-1.1 Import required packages
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 """
 
 import pandas as pd
@@ -23,8 +18,12 @@ from brain_locations_visualizer.plotting_functions import (
 
 
 def generate_all_figures(config_file):
-    # 1.2 Get the parameters by parsing the configuration file
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    """
+    this function generates the three main figures
+    
+    :param config_file: path to the configuration file
+    :type config_file: str
+    """
 
     # variables are assigned in the config_parser function
     config_parser.config_parser(config_file)
@@ -142,8 +141,6 @@ if __name__ == "__main__":
     if len(sys.argv) == 2:
         # use the provided config file
         inpath = sys.argv[2]
-        # run function
-        generate_all_figures(config_file=inpath)
     else:
         # use the default config file
         try:
@@ -151,4 +148,6 @@ if __name__ == "__main__":
         except NameError:  # __file__ is not defined
             # (for example when running in jupyter)
             inpath = Path("../data/example_config.json")
-        generate_all_figures(config_file=inpath)
+    
+    # run function
+    generate_all_figures(config_file=inpath)

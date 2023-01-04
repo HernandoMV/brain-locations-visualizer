@@ -9,6 +9,12 @@ import json
 
 
 def config_parser(path_to_config_file):
+    """
+    Parse the config file and create variables
+    
+    :param path_to_config_file: path to the config file
+    :type path_to_config_file: str
+    """
 
     # define global variables
     global data_path, file_path
