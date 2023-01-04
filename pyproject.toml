@@ -45,6 +45,9 @@ dev = [
 	"pre-commit",
 	"flake8",
  	"setuptools_scm",
+    "sphinx",
+    "sphinx_gallery",
+    "sphinx_autoapi",
 ]
 
 

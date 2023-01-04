@@ -18,6 +18,7 @@ import config_parser
 from brain_locations_visualizer.plotting_functions import (
     generate_side_figure,
     generate_coronal_figure,
+    generate_3D_figure,
 )
 
 
@@ -72,7 +73,7 @@ def generate_all_figures(config_file):
         sl_list = list(
             range(config_parser.z_limits[0], config_parser.z_limits[1], step)
         )
-        sl_list = sl_list[-config_parser.n_images:]
+        sl_list = sl_list[-config_parser.n_images :]
 
     else:
         sl_list = config_parser.sl_list
@@ -128,6 +129,7 @@ def generate_all_figures(config_file):
         parent,
     )
 
+    # generate_3D_figure(config_parser, X, Y, Z, Animal_Name, parent)
 
 if __name__ == "__main__":
     # check input
