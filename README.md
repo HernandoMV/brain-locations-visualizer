@@ -11,9 +11,12 @@ See documentation [here](https://hernandomv.github.io/brain-locations-visualizer
 
 Clone this repo
 
+Optional: create a virtual environment
+
 In your terminal, navigate to the folder where you cloned it and run:
+
 ```
-pip install -e .
+pip install .
 ```
 
 Download supporting data (e.g. atlas) from [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7501966.svg)](https://doi.org/10.5281/zenodo.7501966)
@@ -24,16 +27,29 @@ Put it inside the data folder.
 
 All the scripts work with a text file that specifies the coordinates of the points you want to display (e.g. tip of a fiber).
 This file looks like the one in the example:
+
 ```
 data/example_locations.txt
 ```
 
-TODO: explain the way to get these points in Fiji
+The coordinates in this example are the pixel locations of the 25um/px Allen Brain Atlas.
+You can generate similar files by registering your brain to the atlas (e.g. see [brainreg](https://github.com/brainglobe/brainreg)), and annotating the x, y and z coordinates of the tip of the fiber.
 
-Edit the main path variable in the configuration file to the data folder
+**Important**: edit the main path (```main_path```) variable in the configuration file ```data/example_config.json``` to specify the absolute path to your ```data``` folder.
+
+The scripts use the configuration file to get all the variables and files (e.g. the fiber locations), and that would be the main place for you to customise the figures to your liking. The generated plots would be saved whenever your configuration file is located.
+
+To generate the plots you should provide as argument the path to the configuration file. In your terminal, run the ```generate_all_figures.py``` script. Assuming you are in ```brain_locations_visualizer``` folder, run:
+
 ```
-data/example_config.json
+python generate_all_figures.py path/to/your/config/file.json
 ```
 
-#### Create visualization of coronal sections and a side view of the striatum
+To generate the plots for the example data, run:
 
+```
+python generate_all_figures.py
+```
+
+Which will automatically use the configuration file in ```data/example_config.json```.
+This script will generate all the plots in the ```data``` folder.
