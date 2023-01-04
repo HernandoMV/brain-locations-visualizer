@@ -5,6 +5,8 @@ Uses point locations, in 3D coordinates of the Allen Brain Atlas, to create diff
   <img src="docs/imgs/main.png" width=550>
 </p>
 
+See documentation [here](https://hernandomv.github.io/brain-locations-visualizer/)
+
 ### Installation
 
 Clone this repo
