@@ -138,7 +138,7 @@ if __name__ == "__main__":
 
     if len(sys.argv) == 2:
         # use the provided config file
-        inpath = sys.argv[2]
+        inpath = sys.argv[1]
     else:
         # use the default config file
         try:
