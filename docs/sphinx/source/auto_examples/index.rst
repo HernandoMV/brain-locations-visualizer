@@ -1,9 +1,9 @@
 :orphan:
 
-This is my gallery
+Example gallery
 ==================
 
-Below is a gallery of examples
+These are examples of the functionality of the library.
 
 
 .. raw:: html
@@ -13,18 +13,18 @@ Below is a gallery of examples
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="1. Specify the parameters and files ----------------------------------- 1.1 Import required pac...">
+    <div class="sphx-glr-thumbcontainer" tooltip="1. Import required packages -----------------------------------">
 
 .. only:: html
 
-  .. image:: /auto_examples/images/thumb/sphx_glr_plot_fiber_tips_2D_striatum_thumb.png
-    :alt: plot_fiber_tips_2D_striatum.py
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_fibers_in_striatum_side_view_thumb.png
+    :alt: plot_fibers_in_striatum_side_view.py
 
-  :ref:`sphx_glr_auto_examples_plot_fiber_tips_2D_striatum.py`
+  :ref:`sphx_glr_auto_examples_plot_fibers_in_striatum_side_view.py`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">plot_fiber_tips_2D_striatum.py</div>
+      <div class="sphx-glr-thumbnail-title">plot_fibers_in_striatum_side_view.py</div>
     </div>
 
 
@@ -36,7 +36,7 @@ Below is a gallery of examples
 .. toctree::
    :hidden:
 
-   /auto_examples/plot_fiber_tips_2D_striatum
+   /auto_examples/plot_fibers_in_striatum_side_view
 
 
 .. only:: html

@@ -1,4 +1,4 @@
-This is my gallery
+Example gallery
 ==================
 
-Below is a gallery of examples
+These are examples of the functionality of the library.
