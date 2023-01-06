@@ -23,20 +23,9 @@ plot_fibers_in_striatum_coronal_view.py
 generates a coronal view of the striatum with the fiber tips
 
 1. Import required packages
----------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 9-109
-
-
-
-.. image-sg:: /auto_examples/images/sphx_glr_plot_fibers_in_striatum_coronal_view_001.png
-   :alt: plot fibers in striatum coronal view
-   :srcset: /auto_examples/images/sphx_glr_plot_fibers_in_striatum_coronal_view_001.png
-   :class: sphx-glr-single-img
-
-
-
-
+.. GENERATED FROM PYTHON SOURCE LINES 9-19
 
 .. code-block:: default
 
@@ -45,8 +34,26 @@ generates a coronal view of the striatum with the fiber tips
     import numpy as np
     from pathlib import Path
     from PIL import Image
+    import urllib.request
+    from os.path import exists
     from brain_locations_visualizer import config_parser
     from brain_locations_visualizer.plotting_functions import generate_coronal_figure
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 20-22
+
+2. Get the configuration file and define variables
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. GENERATED FROM PYTHON SOURCE LINES 22-29
+
+.. code-block:: default
 
 
     # use the default config file for the documentation
@@ -55,40 +62,154 @@ generates a coronal view of the striatum with the fiber tips
     # variables are assigned in the config_parser function
     config_parser.config_parser(config_file)
 
-    # plot with a different marker the flat fibers and the tapered fibers
-    # (this is specified in the mouse name)
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 30-32
+
+plot with a different marker the flat fibers and the tapered fibers
+(this is specified in the mouse name)
+
+.. GENERATED FROM PYTHON SOURCE LINES 32-35
+
+.. code-block:: default
+
     ff_marker = "_"
     tf_marker = "|"
 
-    # define the output directory as the parent of the config file
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 36-37
+
+define the output directory as the parent of the config file
+
+.. GENERATED FROM PYTHON SOURCE LINES 37-39
+
+.. code-block:: default
+
     parent = Path(config_file).parent
 
-    # read the file of points
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 40-41
+
+read the file of points
+
+.. GENERATED FROM PYTHON SOURCE LINES 41-47
+
+.. code-block:: default
+
     coords = pd.read_csv(config_parser.file_path, header=0)
     X = coords.x
     Y = coords.y
     Z = coords.z
     Animal_Name = coords.Mouse_name
 
-    # select only the fibers used in the analysis
-    # CAREFUL HERE WITH WHERE IS LEFT AND WHERE IS RIGHT!!
-    # animals that are not included have a # in front of their name
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 48-51
+
+select only the fibers used in the analysis
+CAREFUL HERE WITH WHERE IS LEFT AND WHERE IS RIGHT!!
+animals that are not included have a # in front of their name
+
+.. GENERATED FROM PYTHON SOURCE LINES 51-57
+
+.. code-block:: default
+
     animal_mask = [not an.startswith("#") for an in Animal_Name]
     X = np.array(list(X[animal_mask])).astype(float)
     Y = np.array(list(Y[animal_mask])).astype(float)
     Z = np.array(list(Z[animal_mask])).astype(float)
     Animal_Name = np.array(list(Animal_Name[animal_mask]))
 
-    # This part decides which slices to show
-    # read atlas and get its dimensions
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 58-59
+
+**2.1 This part decides which slices to show**
+
+.. GENERATED FROM PYTHON SOURCE LINES 59-69
+
+.. code-block:: default
+
+
+    # download the atlas from the server into the data folder
+    url = "https://zenodo.org/record/7501966/files/" + config_parser.atlas_path.name
+    # download if data is not there
+    if not exists(config_parser.atlas_path):
+        print('Downloading data...')
+        urllib.request.urlretrieve(url, config_parser.atlas_path)
+    else:
+        print('Data already in directory')
+
+
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    Data already in directory
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 70-71
+
+read atlas and get its dimensions
+
+.. GENERATED FROM PYTHON SOURCE LINES 71-77
+
+.. code-block:: default
+
     atlas = Image.open(config_parser.atlas_path)
     try:
         h, w, _ = np.shape(atlas)
     except Exception:
         h, w = np.shape(atlas)
 
-    # show images evenly if the precise slices are not specified
-    # in the config file
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 78-80
+
+show images evenly if the precise slices are not specified
+in the config file
+
+.. GENERATED FROM PYTHON SOURCE LINES 80-95
+
+.. code-block:: default
+
     if config_parser.sl_list == []:
         step = int(
             np.floor(
@@ -104,14 +225,42 @@ generates a coronal view of the striatum with the fiber tips
     else:
         sl_list = config_parser.sl_list
 
-    # Mirror all to the right hemisphere
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 96-97
+
+Mirror all to the right hemisphere (optional)
+
+.. GENERATED FROM PYTHON SOURCE LINES 97-103
+
+.. code-block:: default
+
     atlas_mid_point = w / 2
     for i in range(len(Z)):
         if Z[i] < atlas_mid_point:
             dist_to_center = atlas_mid_point - Z[i]
             Z[i] = atlas_mid_point + dist_to_center
 
-    # separate animals
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 104-105
+
+define masks for the different animals and fiber types
+
+.. GENERATED FROM PYTHON SOURCE LINES 105-114
+
+.. code-block:: default
+
     mask_1 = [x.startswith(config_parser.id_1) for x in Animal_Name]
     mask_2 = [x.startswith(config_parser.id_2) for x in Animal_Name]
     mask_other = np.logical_and(
@@ -120,6 +269,22 @@ generates a coronal view of the striatum with the fiber tips
 
     ff_mask = [x.endswith("_flat") for x in Animal_Name]
     tf_mask = [not x for x in ff_mask]
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 115-117
+
+2. Generate the figure
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. GENERATED FROM PYTHON SOURCE LINES 117-136
+
+.. code-block:: default
 
     generate_coronal_figure(
         config_parser,
@@ -142,9 +307,20 @@ generates a coronal view of the striatum with the fiber tips
 
 
 
+
+.. image-sg:: /auto_examples/images/sphx_glr_plot_fibers_in_striatum_coronal_view_001.png
+   :alt: plot fibers in striatum coronal view
+   :srcset: /auto_examples/images/sphx_glr_plot_fibers_in_striatum_coronal_view_001.png
+   :class: sphx-glr-single-img
+
+
+
+
+
+
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  6.094 seconds)
+   **Total running time of the script:** ( 0 minutes  5.462 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_fibers_in_striatum_coronal_view.py:

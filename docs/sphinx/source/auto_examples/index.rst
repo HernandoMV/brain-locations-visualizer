@@ -30,7 +30,7 @@ These are examples of the functionality of the library.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="1. Import required packages ---------------------------">
+    <div class="sphx-glr-thumbcontainer" tooltip="1. Import required packages ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
 
 .. only:: html
 
