@@ -11,6 +11,8 @@ import pandas as pd
 import numpy as np
 from pathlib import Path
 from PIL import Image
+import urllib.request
+from os.path import exists
 from brain_locations_visualizer import config_parser
 from brain_locations_visualizer.plotting_functions import generate_coronal_figure
 
@@ -54,7 +56,17 @@ Animal_Name = np.array(list(Animal_Name[animal_mask]))
 
 #%%
 # **2.1 This part decides which slices to show**
- 
+
+# download the atlas from the server into the data folder
+url = "https://zenodo.org/record/7501966/files/" + config_parser.atlas_path.name
+# download if data is not there
+if not exists(config_parser.atlas_path):
+    print('Downloading data...')
+    urllib.request.urlretrieve(url, config_parser.atlas_path)
+else:
+    print('Data already in directory')
+
+#%%
 # read atlas and get its dimensions
 atlas = Image.open(config_parser.atlas_path)
 try:
