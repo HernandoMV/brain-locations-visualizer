@@ -1,11 +1,13 @@
 # brain-locations-visualizer
 
+![auto docs](https://github.com/HernandoMV/brain-locations-visualizer/actions/workflows/documentation.yml/badge.svg)
+
 Uses point locations, in 3D coordinates of the Allen Brain Atlas, to create different visualisations for these locations:
 <p align="middle">
   <img src="docs/imgs/main.png" width=550>
 </p>
 
-See documentation [here](https://hernandomv.github.io/brain-locations-visualizer/)
+:books: See documentation [here](https://hernandomv.github.io/brain-locations-visualizer/)
 
 ### Installation
 
