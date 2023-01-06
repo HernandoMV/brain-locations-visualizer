@@ -5,9 +5,9 @@ This module contains functions for generating the main figures
 import matplotlib.pyplot as plt
 from PIL import Image
 import numpy as np
-from brainrender import Scene
-from brainrender import settings
-from brainrender.actors import Points
+# from brainrender import Scene
+# from brainrender import settings
+# from brainrender.actors import Points
 
 
 def generate_side_figure(
@@ -214,118 +214,118 @@ def generate_coronal_figure(
     # plt.show(fig2)
 
 
-def generate_3D_figure(config_parser, X, Y, Z, animal_name, parent):
-    """
-    Generate several 3D plots of the fibers
+# def generate_3D_figure(config_parser, X, Y, Z, animal_name, parent):
+#     """
+#     Generate several 3D plots of the fibers
 
-    :param config_parser: module from config_parser.py
-    :type config_parser: module with global variables
-    :param X: array with x coordinates of the fibers
-    :type X: array
-    :param Y: array with y coordinates of the fibers
-    :type Y: array
-    :param Z: array with z coordinates of the fibers
-    :type Z: array
-    :param animal_name: array with the names of the animals
-    :type animal_name: array
-    :param parent: path to the parent directory
-    :type parent: str or Path
-    """
+#     :param config_parser: module from config_parser.py
+#     :type config_parser: module with global variables
+#     :param X: array with x coordinates of the fibers
+#     :type X: array
+#     :param Y: array with y coordinates of the fibers
+#     :type Y: array
+#     :param Z: array with z coordinates of the fibers
+#     :type Z: array
+#     :param animal_name: array with the names of the animals
+#     :type animal_name: array
+#     :param parent: path to the parent directory
+#     :type parent: str or Path
+#     """
 
-    settings.SHOW_AXES = False
-    settings.WHOLE_SCREEN = False
+#     settings.SHOW_AXES = False
+#     settings.WHOLE_SCREEN = False
 
-    # Radius of points
-    rad = 50
+#     # Radius of points
+#     rad = 50
 
-    # alpha of points
-    alpha = 0.6
+#     # alpha of points
+#     alpha = 0.6
 
-    top_half_camera = {
-        "pos": (2561, -19083, -5807),
-        "viewup": (-1, 0, 0),
-        "clippingRange": (12258, 36810),
-        "focalPoint": (6314, 4543, -2712),
-        "distance": 24122,
-    }
+#     top_half_camera = {
+#         "pos": (2561, -19083, -5807),
+#         "viewup": (-1, 0, 0),
+#         "clippingRange": (12258, 36810),
+#         "focalPoint": (6314, 4543, -2712),
+#         "distance": 24122,
+#     }
 
-    top_camera = {
-        "pos": (1814, -32863, -5453),
-        "viewup": (-1, 0, 0),
-        "clippingRange": (27457, 49150),
-        "focalPoint": (6767, 4440, -5946),
-        "distance": 37634,
-    }
+#     top_camera = {
+#         "pos": (1814, -32863, -5453),
+#         "viewup": (-1, 0, 0),
+#         "clippingRange": (27457, 49150),
+#         "focalPoint": (6767, 4440, -5946),
+#         "distance": 37634,
+#     }
 
-    back_camera = {
-        "pos": (32023, -388, -5767),
-        "viewup": (0, -1, 0),
-        "clippingRange": (17887, 40832),
-        "focalPoint": (6732, 4204, -5674),
-        "distance": 25705,
-    }
+#     back_camera = {
+#         "pos": (32023, -388, -5767),
+#         "viewup": (0, -1, 0),
+#         "clippingRange": (17887, 40832),
+#         "focalPoint": (6732, 4204, -5674),
+#         "distance": 25705,
+#     }
 
-    zoom_camera = {
-        "pos": (24178, 1210, -3760),
-        "viewup": (0, -1, 0),
-        "clippingRange": (9250, 33210),
-        "focalPoint": (6633, 3937, -2468),
-        "distance": 17803,
-    }
+#     zoom_camera = {
+#         "pos": (24178, 1210, -3760),
+#         "viewup": (0, -1, 0),
+#         "clippingRange": (9250, 33210),
+#         "focalPoint": (6633, 3937, -2468),
+#         "distance": 17803,
+#     }
 
-    plane_center = [8655.15806343, 4271.67187907, 5632.09744594]
+#     plane_center = [8655.15806343, 4271.67187907, 5632.09744594]
 
-    # Plot all together:
-    scene = Scene(inset=False, title="", screenshots_folder=parent)
-    region = scene.add_brain_region("CP", alpha=0.2, color="gray")
-    region2 = scene.add_brain_region("ACB", alpha=0.2, color="gray")
-    region3 = scene.add_brain_region("FS", alpha=0.2, color="gray")
+#     # Plot all together:
+#     scene = Scene(inset=False, title="", screenshots_folder=parent)
+#     region = scene.add_brain_region("CP", alpha=0.2, color="gray")
+#     region2 = scene.add_brain_region("ACB", alpha=0.2, color="gray")
+#     region3 = scene.add_brain_region("FS", alpha=0.2, color="gray")
 
-    # import the custom mesh from AU1 TODO
-    # scene.add(own_mesh, color="tomato")
-    fname = "_" + str(rad)
+#     # import the custom mesh from AU1 TODO
+#     # scene.add(own_mesh, color="tomato")
+#     fname = "_" + str(rad)
 
-    pts = np.array([[x, y, z] for x, y, z in zip(X, Y, Z)])
-    for i in range(len(animal_name)):
-        if animal_name[i].startswith(config_parser.id_1):
-            scene.add(
-                Points(
-                    np.array([pts[i]]),
-                    name="fiber_tips",
-                    colors=config_parser.color_1,
-                    radius=rad,
-                    alpha=alpha,
-                )
-            )
-        if animal_name[i].startswith(config_parser.id_2):
-            scene.add(
-                Points(
-                    np.array([pts[i]]),
-                    name="fiber_tips",
-                    colors=config_parser.color_2,
-                    radius=rad,
-                    alpha=alpha,
-                )
-            )
+#     pts = np.array([[x, y, z] for x, y, z in zip(X, Y, Z)])
+#     for i in range(len(animal_name)):
+#         if animal_name[i].startswith(config_parser.id_1):
+#             scene.add(
+#                 Points(
+#                     np.array([pts[i]]),
+#                     name="fiber_tips",
+#                     colors=config_parser.color_1,
+#                     radius=rad,
+#                     alpha=alpha,
+#                 )
+#             )
+#         if animal_name[i].startswith(config_parser.id_2):
+#             scene.add(
+#                 Points(
+#                     np.array([pts[i]]),
+#                     name="fiber_tips",
+#                     colors=config_parser.color_2,
+#                     radius=rad,
+#                     alpha=alpha,
+#                 )
+#             )
 
-    # scene.content
-    # top views
-    scene.render(camera=top_half_camera, zoom=1.2, interactive=True)
-    scene.screenshot(name="top_half_view_all" + fname + ".png")
+#     # scene.content
+#     # top views
+#     scene.render(camera=top_half_camera, zoom=1.2, interactive=True)
+#     scene.screenshot(name="top_half_view_all" + fname + ".png")
 
-    scene.render(camera=top_camera, zoom=1.2, interactive=False)
-    scene.screenshot(name="top_view_all" + fname + ".png")
+#     scene.render(camera=top_camera, zoom=1.2, interactive=False)
+#     scene.screenshot(name="top_view_all" + fname + ".png")
 
-    # back view
-    scene.render(camera=back_camera, zoom=1.2, interactive=False)
-    plane = scene.atlas.get_plane(pos=plane_center, norm=(-1, 0, 0))
-    scene.slice(plane)
-    scene.screenshot(name="back_view_all" + fname + ".png")
+#     # back view
+#     scene.render(camera=back_camera, zoom=1.2, interactive=False)
+#     plane = scene.atlas.get_plane(pos=plane_center, norm=(-1, 0, 0))
+#     scene.slice(plane)
+#     scene.screenshot(name="back_view_all" + fname + ".png")
 
-    # zoom view
-    plane = scene.atlas.get_plane(pos=plane_center, norm=(-1, 0, 0))
-    scene.render(camera=zoom_camera, zoom=1.2, interactive=False)
-    scene.screenshot(name="zoom_view_all" + fname + ".png")
+#     # zoom view
+#     plane = scene.atlas.get_plane(pos=plane_center, norm=(-1, 0, 0))
+#     scene.render(camera=zoom_camera, zoom=1.2, interactive=False)
+#     scene.screenshot(name="zoom_view_all" + fname + ".png")
 
-    # close
-    scene.close()
+#     # close
+#     scene.close()
