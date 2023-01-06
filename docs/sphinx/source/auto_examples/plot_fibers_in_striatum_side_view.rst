@@ -23,9 +23,205 @@ plot_fibers_in_striatum_side_view.py
 generates a side view of the striatum with the fiber tips
 
 1. Import required packages
------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. GENERATED FROM PYTHON SOURCE LINES 9-87
+.. GENERATED FROM PYTHON SOURCE LINES 9-16
+
+.. code-block:: default
+
+
+    import pandas as pd
+    import numpy as np
+    from pathlib import Path
+    from brain_locations_visualizer import config_parser
+    from brain_locations_visualizer.plotting_functions import generate_side_figure
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 17-19
+
+2. Get the configuration file and define variables
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. GENERATED FROM PYTHON SOURCE LINES 19-26
+
+.. code-block:: default
+
+
+    # use the default config file for the documentation
+    config_file = Path("config_for_documentation.json")
+
+    # variables are assigned in the config_parser function
+    config_parser.config_parser(config_file)
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 27-29
+
+plot with a different marker the flat fibers and the tapered fibers
+(this is specified in the mouse name)
+
+.. GENERATED FROM PYTHON SOURCE LINES 29-32
+
+.. code-block:: default
+
+    ff_marker = "_"
+    tf_marker = "|"
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 33-34
+
+define the output directory as the parent of the config file
+
+.. GENERATED FROM PYTHON SOURCE LINES 34-36
+
+.. code-block:: default
+
+    parent = Path(config_file).parent
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 37-38
+
+read the file of points
+
+.. GENERATED FROM PYTHON SOURCE LINES 38-43
+
+.. code-block:: default
+
+    coords = pd.read_csv(config_parser.file_path, header=0)
+    X = coords.x
+    Y = coords.y
+    Animal_Name = coords.Mouse_name
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 44-46
+
+select only the fibers used in the analysis
+animals that are not included have a # in front of their name
+
+.. GENERATED FROM PYTHON SOURCE LINES 46-51
+
+.. code-block:: default
+
+    animal_mask = [not an.startswith("#") for an in Animal_Name]
+    X = np.array(list(X[animal_mask])).astype(float)
+    Y = np.array(list(Y[animal_mask])).astype(float)
+    Animal_Name = np.array(list(Animal_Name[animal_mask]))
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 52-54
+
+plot slices location evenly if the precise slices are not specified
+in the config file
+
+.. GENERATED FROM PYTHON SOURCE LINES 54-69
+
+.. code-block:: default
+
+    if config_parser.sl_list == []:
+        step = int(
+            np.floor(
+                (config_parser.z_limits[1] - config_parser.z_limits[0])
+                / config_parser.n_images
+            )
+        )
+        sl_list = list(
+            range(config_parser.z_limits[0], config_parser.z_limits[1], step)
+        )
+        sl_list = sl_list[-config_parser.n_images :]
+
+    else:
+        sl_list = config_parser.sl_list
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 70-71
+
+separate animals
+
+.. GENERATED FROM PYTHON SOURCE LINES 71-80
+
+.. code-block:: default
+
+    mask_1 = [x.startswith(config_parser.id_1) for x in Animal_Name]
+    mask_2 = [x.startswith(config_parser.id_2) for x in Animal_Name]
+    mask_other = np.logical_and(
+        [not e for e in mask_1], [not e for e in mask_2]
+    )
+
+    ff_mask = [x.endswith("_flat") for x in Animal_Name]
+    tf_mask = [not x for x in ff_mask]
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 81-83
+
+2. Generate the figure
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. GENERATED FROM PYTHON SOURCE LINES 83-98
+
+.. code-block:: default
+
+    generate_side_figure(
+        config_parser,
+        sl_list,
+        X,
+        Y,
+        mask_1,
+        mask_2,
+        mask_other,
+        ff_mask,
+        tf_mask,
+        ff_marker,
+        tf_marker,
+        parent,
+    )
+
 
 
 
@@ -48,94 +244,9 @@ generates a side view of the striatum with the fiber tips
 
 
 
-
-|
-
-.. code-block:: default
-
-
-    import pandas as pd
-    import numpy as np
-    from pathlib import Path
-    from brain_locations_visualizer import config_parser
-    from brain_locations_visualizer.plotting_functions import generate_side_figure
-
-
-    # use the default config file for the documentation
-    config_file = Path("config_for_documentation.json")
-
-    # variables are assigned in the config_parser function
-    config_parser.config_parser(config_file)
-
-    # plot with a different marker the flat fibers and the tapered fibers
-    # (this is specified in the mouse name)
-    ff_marker = "_"
-    tf_marker = "|"
-
-    # define the output directory as the parent of the config file
-    parent = Path(config_file).parent
-
-    # read the file of points
-    coords = pd.read_csv(config_parser.file_path, header=0)
-    X = coords.x
-    Y = coords.y
-    Animal_Name = coords.Mouse_name
-
-    # select only the fibers used in the analysis
-    # CAREFUL HERE WITH WHERE IS LEFT AND WHERE IS RIGHT!!
-    # animals that are not included have a # in front of their name
-    animal_mask = [not an.startswith("#") for an in Animal_Name]
-    X = np.array(list(X[animal_mask])).astype(float)
-    Y = np.array(list(Y[animal_mask])).astype(float)
-    Animal_Name = np.array(list(Animal_Name[animal_mask]))
-
-    # plot slices location evenly if the precise slices are not specified
-    # in the config file
-    if config_parser.sl_list == []:
-        step = int(
-            np.floor(
-                (config_parser.z_limits[1] - config_parser.z_limits[0])
-                / config_parser.n_images
-            )
-        )
-        sl_list = list(
-            range(config_parser.z_limits[0], config_parser.z_limits[1], step)
-        )
-        sl_list = sl_list[-config_parser.n_images :]
-
-    else:
-        sl_list = config_parser.sl_list
-
-    # separate animals
-    mask_1 = [x.startswith(config_parser.id_1) for x in Animal_Name]
-    mask_2 = [x.startswith(config_parser.id_2) for x in Animal_Name]
-    mask_other = np.logical_and(
-        [not e for e in mask_1], [not e for e in mask_2]
-    )
-
-    ff_mask = [x.endswith("_flat") for x in Animal_Name]
-    tf_mask = [not x for x in ff_mask]
-
-    generate_side_figure(
-        config_parser,
-        sl_list,
-        X,
-        Y,
-        mask_1,
-        mask_2,
-        mask_other,
-        ff_mask,
-        tf_mask,
-        ff_marker,
-        tf_marker,
-        parent,
-    )
-
-
-
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  4.007 seconds)
+   **Total running time of the script:** ( 0 minutes  2.160 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_fibers_in_striatum_side_view.py:
