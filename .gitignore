@@ -1,5 +1,9 @@
 data/*.pdf
 data/*.tif
+data/*.png
+docs/sphinx/souce/auto_examples
+docs/examples/*.pdf
+docs/examples/*.png
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

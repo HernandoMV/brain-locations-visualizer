@@ -30,6 +30,23 @@ These are examples of the functionality of the library.
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="1. Import required packages ---------------------------">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_fibers_in_striatum_coronal_view_thumb.png
+    :alt: plot_fibers_in_striatum_coronal_view.py
+
+  :ref:`sphx_glr_auto_examples_plot_fibers_in_striatum_coronal_view.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">plot_fibers_in_striatum_coronal_view.py</div>
+    </div>
+
+
+.. raw:: html
+
     </div>
 
 
@@ -37,6 +54,7 @@ These are examples of the functionality of the library.
    :hidden:
 
    /auto_examples/plot_fibers_in_striatum_side_view
+   /auto_examples/plot_fibers_in_striatum_coronal_view
 
 
 .. only:: html
