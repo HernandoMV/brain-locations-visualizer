@@ -1,6 +1,6 @@
 {
-    "data_path": "/home/hernandom/GitHub/brain-locations-visualizer/data/",
-    "locations_file": "/home/hernandom/GitHub/brain-locations-visualizer/data/example_locations.txt",
+    "data_path": "/mnt/c/Users/herny/Documents/GitHub/brain-locations-visualizer/data/",
+    "locations_file": "/mnt/c/Users/herny/Documents/GitHub/brain-locations-visualizer/data/example_locations.txt",
     "variable_2": 42,
     "z_limits": [135, 307],
     "y_limits": [98, 271],

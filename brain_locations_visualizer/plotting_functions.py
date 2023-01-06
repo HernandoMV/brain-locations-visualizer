@@ -13,6 +13,7 @@ import numpy as np
 def generate_side_figure(
     config_parser,
     sl_list,
+    str_im,
     X,
     Y,
     mask_1,
@@ -31,6 +32,8 @@ def generate_side_figure(
     :type config_parser: module with global variables
     :param sl_list: location of the slices to show as dotted lines
     :type sl_list: list
+    :param str_im: image to use
+    :type str_im: Image
     :param X: array with x coordinates of the fibers
     :type X: array
     :param Y: array with y coordinates of the fibers
@@ -54,8 +57,7 @@ def generate_side_figure(
     """
     # make the plot
     fig, ax = plt.subplots(1, 1, figsize=[10, 10])
-    # show striatum outline
-    str_im = Image.open(config_parser.cp_image_path)
+    
     ax.imshow(str_im)
     # show where slices are taken from
     ax.vlines(

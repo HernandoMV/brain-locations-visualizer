@@ -1,6 +1,6 @@
 # brain-locations-visualizer
 
-![auto docs](https://github.com/HernandoMV/brain-locations-visualizer/actions/workflows/documentation.yml/badge.svg)
+[![AutoDocs Actions Status](https://https://github.com/HernandoMV/brain-locations-visualizer/workflows/Docs/badge.svg)](https://github.com/HernandoMV/brain-locations-visualizer/actions)
 
 Uses point locations, in 3D coordinates of the Allen Brain Atlas, to create different visualisations for these locations:
 <p align="middle">
@@ -37,7 +37,7 @@ data/example_locations.txt
 The coordinates in this example are the pixel locations of the 25um/px Allen Brain Atlas.
 You can generate similar files by registering your brain to the atlas (e.g. see [brainreg](https://github.com/brainglobe/brainreg)), and annotating the x, y and z coordinates of the tip of the fiber.
 
-**Important**: edit the main path (```main_path```) variable in the configuration file ```data/example_config.json``` to specify the absolute path to your ```data``` folder.
+**Important**: edit the main path (```main_path```) variable in the configuration file ```data/example_config.json``` to specify the absolute path to your ```data``` folder. Do the same with the ```locations_file``` variable if you want to use the example locations file.
 
 The scripts use the configuration file to get all the variables and files (e.g. the fiber locations), and that would be the main place for you to customise the figures to your liking. The generated plots would be saved whenever your configuration file is located.
 

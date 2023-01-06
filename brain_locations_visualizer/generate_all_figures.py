@@ -11,7 +11,7 @@ import config_parser
 from brain_locations_visualizer.plotting_functions import (
     generate_side_figure,
     generate_coronal_figure,
-    generate_3D_figure,
+    #generate_3D_figure,
 )
 
 
@@ -92,9 +92,13 @@ def generate_all_figures(config_file):
     ff_mask = [x.endswith("_flat") for x in Animal_Name]
     tf_mask = [not x for x in ff_mask]
 
+    # get the image of the outline of the striatum from the side
+    str_im = Image.open(config_parser.cp_image_path)
+    
     generate_side_figure(
         config_parser,
         sl_list,
+        str_im,
         X,
         Y,
         mask_1,
