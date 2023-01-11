@@ -1,0 +1,45 @@
+:py:mod:`brain_locations_visualizer.generate_all_figures`
+=========================================================
+
+.. py:module:: brain_locations_visualizer.generate_all_figures
+
+.. autoapi-nested-parse::
+
+   This script generates the three figures
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   brain_locations_visualizer.generate_all_figures.generate_all_figures
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   brain_locations_visualizer.generate_all_figures.inpath
+
+
+.. py:function:: generate_all_figures(config_file)
+
+   this function generates the three main figures
+
+   :param config_file: path to the configuration file
+   :type config_file: str
+
+
+.. py:data:: inpath
+   
+
+   
+

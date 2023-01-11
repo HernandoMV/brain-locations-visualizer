@@ -1,0 +1,281 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>brain_locations_visualizer.plotting_functions &mdash; brain-locations-visualizer  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/sg_gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/sg_gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/sg_gallery-rendered-html.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> brain-locations-visualizer
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../auto_examples/index.html">Example gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">brain-locations-visualizer</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">brain_locations_visualizer.plotting_functions</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/autoapi/brain_locations_visualizer/plotting_functions/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <section id="module-brain_locations_visualizer.plotting_functions">
+<span id="brain-locations-visualizer-plotting-functions"></span><h1><a class="reference internal" href="#module-brain_locations_visualizer.plotting_functions" title="brain_locations_visualizer.plotting_functions"><code class="xref py py-mod docutils literal notranslate"><span class="pre">brain_locations_visualizer.plotting_functions</span></code></a><a class="headerlink" href="#module-brain_locations_visualizer.plotting_functions" title="Permalink to this heading">¶</a></h1>
+<p>This module contains functions for generating the main figures</p>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading">¶</a></h2>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">¶</a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#brain_locations_visualizer.plotting_functions.generate_side_figure" title="brain_locations_visualizer.plotting_functions.generate_side_figure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_side_figure</span></code></a>(config_parser, sl_list, str_im, ...)</p></td>
+<td><p>Plots the location of the fibers in the striatum from the side</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#brain_locations_visualizer.plotting_functions.generate_coronal_figure" title="brain_locations_visualizer.plotting_functions.generate_coronal_figure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_coronal_figure</span></code></a>(config_parser, sl_list, w, h, ...)</p></td>
+<td><p>plots the location of the fibers in the striatum from the coronal view</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="brain_locations_visualizer.plotting_functions.generate_side_figure">
+<span class="sig-prename descclassname"><span class="pre">brain_locations_visualizer.plotting_functions.</span></span><span class="sig-name descname"><span class="pre">generate_side_figure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_parser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sl_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">str_im</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_other</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ff_mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tf_mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ff_marker</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tf_marker</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#brain_locations_visualizer.plotting_functions.generate_side_figure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the location of the fibers in the striatum from the side</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config_parser</strong> (<em>module with global variables</em>) – module from config_parser.py</p></li>
+<li><p><strong>sl_list</strong> (<em>list</em>) – location of the slices to show as dotted lines</p></li>
+<li><p><strong>str_im</strong> (<em>Image</em>) – image to use</p></li>
+<li><p><strong>X</strong> (<em>array</em>) – array with x coordinates of the fibers</p></li>
+<li><p><strong>Y</strong> (<em>array</em>) – array with y coordinates of the fibers</p></li>
+<li><p><strong>mask_1</strong> (<em>logical array</em>) – mask for locations of fibers from the first group</p></li>
+<li><p><strong>mask_2</strong> (<em>logical array</em>) – mask for locations of fibers from the second group</p></li>
+<li><p><strong>mask_other</strong> (<em>logical array</em>) – mask for locations of fibers from other groups</p></li>
+<li><p><strong>ff_mask</strong> (<em>logical array</em>) – mask for locations of fibers from flat fibers</p></li>
+<li><p><strong>tf_mask</strong> (<em>logical array</em>) – mask for locations of fibers from tapered fibers</p></li>
+<li><p><strong>ff_marker</strong> (<em>str</em>) – type of marker for flat fibers</p></li>
+<li><p><strong>tf_marker</strong> (<em>str</em>) – type of marker for tapered fibers</p></li>
+<li><p><strong>parent</strong> (<em>str</em><em> or </em><em>Path</em>) – path to the parent directory</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="brain_locations_visualizer.plotting_functions.generate_coronal_figure">
+<span class="sig-prename descclassname"><span class="pre">brain_locations_visualizer.plotting_functions.</span></span><span class="sig-name descname"><span class="pre">generate_coronal_figure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_parser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sl_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atlas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_other</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ff_mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tf_mask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ff_marker</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tf_marker</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#brain_locations_visualizer.plotting_functions.generate_coronal_figure" title="Permalink to this definition">¶</a></dt>
+<dd><p>plots the location of the fibers in the striatum from the coronal view</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config_parser</strong> (<em>module with global variables</em>) – module from config_parser.py</p></li>
+<li><p><strong>sl_list</strong> (<em>list</em>) – location of the slices to show as dotted lines</p></li>
+<li><p><strong>w</strong> (<em>int</em>) – width of the individual slices</p></li>
+<li><p><strong>h</strong> (<em>int</em>) – height of the individual slices</p></li>
+<li><p><strong>atlas</strong> (<em>Image</em>) – atlas to use</p></li>
+<li><p><strong>X</strong> (<em>array</em>) – array with x coordinates of the fibers</p></li>
+<li><p><strong>Y</strong> (<em>array</em>) – array with y coordinates of the fibers</p></li>
+<li><p><strong>Z</strong> (<em>array</em>) – array with z coordinates of the fibers</p></li>
+<li><p><strong>mask_1</strong> (<em>logical array</em>) – mask for locations of fibers from the first group</p></li>
+<li><p><strong>mask_2</strong> (<em>logical array</em>) – mask for locations of fibers from the second group</p></li>
+<li><p><strong>mask_other</strong> (<em>logical array</em>) – mask for locations of fibers from other groups</p></li>
+<li><p><strong>ff_mask</strong> (<em>logical array</em>) – mask for locations of fibers from flat fibers</p></li>
+<li><p><strong>tf_mask</strong> (<em>logical array</em>) – mask for locations of fibers from tapered fibers</p></li>
+<li><p><strong>ff_marker</strong> (<em>str</em>) – type of marker for flat fibers</p></li>
+<li><p><strong>tf_marker</strong> (<em>str</em>) – type of marker for tapered fibers</p></li>
+<li><p><strong>parent</strong> (<em>str</em><em> or </em><em>Path</em>) – path to the parent directory</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2023, Hernando M Vergara.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

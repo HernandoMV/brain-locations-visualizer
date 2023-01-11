@@ -1,0 +1,95 @@
+:py:mod:`brain_locations_visualizer.plotting_functions`
+=======================================================
+
+.. py:module:: brain_locations_visualizer.plotting_functions
+
+.. autoapi-nested-parse::
+
+   This module contains functions for generating the main figures
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   brain_locations_visualizer.plotting_functions.generate_side_figure
+   brain_locations_visualizer.plotting_functions.generate_coronal_figure
+
+
+
+.. py:function:: generate_side_figure(config_parser, sl_list, str_im, X, Y, mask_1, mask_2, mask_other, ff_mask, tf_mask, ff_marker, tf_marker, parent)
+
+   Plots the location of the fibers in the striatum from the side
+
+   :param config_parser: module from config_parser.py
+   :type config_parser: module with global variables
+   :param sl_list: location of the slices to show as dotted lines
+   :type sl_list: list
+   :param str_im: image to use
+   :type str_im: Image
+   :param X: array with x coordinates of the fibers
+   :type X: array
+   :param Y: array with y coordinates of the fibers
+   :type Y: array
+   :param mask_1: mask for locations of fibers from the first group
+   :type mask_1: logical array
+   :param mask_2: mask for locations of fibers from the second group
+   :type mask_2: logical array
+   :param mask_other: mask for locations of fibers from other groups
+   :type mask_other: logical array
+   :param ff_mask: mask for locations of fibers from flat fibers
+   :type ff_mask: logical array
+   :param tf_mask: mask for locations of fibers from tapered fibers
+   :type tf_mask: logical array
+   :param ff_marker: type of marker for flat fibers
+   :type ff_marker: str
+   :param tf_marker: type of marker for tapered fibers
+   :type tf_marker: str
+   :param parent: path to the parent directory
+   :type parent: str or Path
+
+
+.. py:function:: generate_coronal_figure(config_parser, sl_list, w, h, atlas, X, Y, Z, mask_1, mask_2, mask_other, ff_mask, tf_mask, ff_marker, tf_marker, parent)
+
+   plots the location of the fibers in the striatum from the coronal view
+
+   :param config_parser: module from config_parser.py
+   :type config_parser: module with global variables
+   :param sl_list: location of the slices to show as dotted lines
+   :type sl_list: list
+   :param w: width of the individual slices
+   :type w: int
+   :param h: height of the individual slices
+   :type h: int
+   :param atlas: atlas to use
+   :type atlas: Image
+   :param X: array with x coordinates of the fibers
+   :type X: array
+   :param Y: array with y coordinates of the fibers
+   :type Y: array
+   :param Z: array with z coordinates of the fibers
+   :type Z: array
+   :param mask_1: mask for locations of fibers from the first group
+   :type mask_1: logical array
+   :param mask_2: mask for locations of fibers from the second group
+   :type mask_2: logical array
+   :param mask_other: mask for locations of fibers from other groups
+   :type mask_other: logical array
+   :param ff_mask: mask for locations of fibers from flat fibers
+   :type ff_mask: logical array
+   :param tf_mask: mask for locations of fibers from tapered fibers
+   :type tf_mask: logical array
+   :param ff_marker: type of marker for flat fibers
+   :type ff_marker: str
+   :param tf_marker: type of marker for tapered fibers
+   :type tf_marker: str
+   :param parent: path to the parent directory
+   :type parent: str or Path
+
+

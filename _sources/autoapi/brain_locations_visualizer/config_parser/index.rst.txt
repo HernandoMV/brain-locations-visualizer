@@ -1,0 +1,34 @@
+:py:mod:`brain_locations_visualizer.config_parser`
+==================================================
+
+.. py:module:: brain_locations_visualizer.config_parser
+
+.. autoapi-nested-parse::
+
+   reads config file and creates variables
+   that can be accessed when this module is imported
+   and the function is called
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   brain_locations_visualizer.config_parser.config_parser
+
+
+
+.. py:function:: config_parser(path_to_config_file)
+
+   Parse the config file and create variables
+
+   :param path_to_config_file: path to the config file
+   :type path_to_config_file: str
+
+

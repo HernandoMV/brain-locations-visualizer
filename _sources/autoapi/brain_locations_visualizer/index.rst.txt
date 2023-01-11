@@ -1,0 +1,25 @@
+:py:mod:`brain_locations_visualizer`
+====================================
+
+.. py:module:: brain_locations_visualizer
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   config_parser/index.rst
+   generate_all_figures/index.rst
+   plotting_functions/index.rst
+
+
+Package Contents
+----------------
+
+.. py:data:: __version__
+   
+
+   
+
